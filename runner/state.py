@@ -80,7 +80,7 @@ class RunnerState:
 
     # ----- runs -----
     def can_run(self) -> tuple[bool, str]:
-        """Rule 2 in CLAUDE.md: armed, preflight today, no run in progress, e-stop acknowledged."""
+        """A run needs all four: armed, preflight today, no run in progress, e-stop acknowledged."""
         if not self.is_armed():
             return False, "runner is DISARMED. Arm it from the keyboard in the runner window (press a)."
         if self.phase == Phase.RUNNING:

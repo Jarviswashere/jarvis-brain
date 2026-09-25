@@ -10,7 +10,7 @@ Keys in the runner window:
 
 HTTP (all on 127.0.0.1 only):
   GET  /health   GET /state   GET /skills
-  POST /arm      always 403: arming is keyboard only (CLAUDE.md rule 1)
+  POST /arm      always 403: arming is keyboard only, by design
   POST /disarm   POST /run {"skill": "mock"}   POST /stop
 """
 
