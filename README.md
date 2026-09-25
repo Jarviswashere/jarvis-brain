@@ -4,6 +4,22 @@ The brain side of the robot: the skill runner, the safety layer, the trial log a
 
 The runner is the only process allowed to start a motion. It talks to LeRobot in `../arm` as a separate process and never imports it.
 
+## How it works
+
+```mermaid
+stateDiagram-v2
+    [*] --> DISARMED
+    DISARMED --> ARMED: key a, keyboard only
+    ARMED --> RUNNING: POST /run, four checks pass
+    RUNNING --> DONE: finished
+    RUNNING --> STOPPED: stop or timeout
+    DONE --> ARMED
+    STOPPED --> ARMED
+    ARMED --> DISARMED: key d or 10 min idle
+```
+
+Five diagrams with notes on what to learn from each: [docs/architecture.md](docs/architecture.md). Where the runner sits, the full state machine, the four checks before a run, the four stop paths, and how a trial becomes a score.
+
 ## Install
 
 ```bash
