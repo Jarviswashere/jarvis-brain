@@ -1,0 +1,13 @@
+[project]
+name = "jarvis"
+version = "0.1.0"
+description = "Jarvis brain: skill runner, safety layer, Reachy Mini profile and tools"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
