@@ -70,6 +70,16 @@ curl -s -X POST localhost:8765/run -H 'Content-Type: application/json' -d '{"ski
 curl -s -X POST localhost:8765/stop
 ```
 
+## Run a protocol trial
+
+```bash
+scripts/trial.py mock            # one trial, next position from config/positions-seed.txt
+scripts/trial.py mock --dry-run  # prints every step, calls nothing, writes nothing
+scripts/validate_log.py          # checks every row of logs/trial-log.csv
+```
+
+The runner must be up and armed (keys a, p, e). The script reads the skill card in `skills/`, says the trial id out loud, asks for the reset, counts down, starts the run, and waits. Press `s` or `f` and Enter to end early. It then asks the judge for the result, the fail category and a note, and appends one row. Judge name, sprint and layout come from `.env`.
+
 ## Scoreboard
 
 ```bash

@@ -1,0 +1,6 @@
+# Start position sequence for the 20-trial protocol.
+# Cells are numbered 1 to 9 on a 3 x 3 grid (see the skill card). Same order every time.
+# Trials 1 to 20:
+5 1 9 3 7 2 8 4 6 5 9 1 7 3 6 2 4 8 5 1
+# Unseen positions (5-trial extra test, reported separately):
+A B A B A

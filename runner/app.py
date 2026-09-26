@@ -47,6 +47,7 @@ class RunRequest(BaseModel):
     position: str = ""
     lighting: str = "protocol"
     notes: str = ""
+    log_trial: bool = True  # false when a human judge (scripts/trial.py) writes the row instead
 
 
 def _write_run_line(skill: skills.Skill, result: str, duration: float, stopped_by: str) -> None:
@@ -92,6 +93,8 @@ def _run_worker(skill: skills.Skill, req: RunRequest) -> None:
     info = state.run
     assert info is not None
     _write_run_line(skill, result, info.duration_s, info.stopped_by)
+    if not req.log_trial:
+        return
     trial_log.append(
         sprint=os.getenv("SPRINT", ""),
         skill=skill.name,
